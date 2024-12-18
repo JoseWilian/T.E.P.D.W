@@ -16,7 +16,7 @@
 
 <body>
     <div class="background">
-        <div class="window glass active" style="max-width: 400px">
+        <div class="window glass active" style="max-width: 30%">
             <div class="title-bar">
                 <div class="title-bar-text">All Fruits</div>
             </div>
