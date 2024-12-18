@@ -23,7 +23,7 @@
             <ul role="menubar">
                 <li role="menuitem" tabindex="0" onclick="window.location.href='{{ route('products.create') }}'">New
                 </li>
-                <li role="menuitem" tabindex="0">Edit</li>
+                <li id="updateButton" role="menuitem" tabindex="0">Edit</li>
                 <li id="deleteButton" role="menuitem" tabindex="0">Delete</li>
             </ul>
             <div class="content window-body has-space">
@@ -67,6 +67,21 @@
                         console.error('Error:', error);
                     });
             });
+
+            document.getElementById('updateButton').addEventListener('click', function() {
+                const selectedItems = document.querySelectorAll('li.selected');
+
+                if (selectedItems.length === 1) {
+                    const selectedId = selectedItems[0].getAttribute('data-id');
+
+                    window.location.href = `/products/${selectedId}/edit`;
+
+                } else {
+                    console.log('Please select exactly one item.');
+                }
+            });
+
+
         });
     </script>
 </body>
