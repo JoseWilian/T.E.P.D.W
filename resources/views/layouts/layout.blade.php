@@ -16,9 +16,9 @@
 
 <body>
     <div class="background">
-        <div class="window glass active" style="max-width: 50%">
+        <div class="window glass active" style="max-width: 400px">
             <div class="title-bar">
-                <div class="title-bar-text">Fruit description</div>
+                <div class="title-bar-text">All Fruits</div>
             </div>
             <ul role="menubar">
                 <li role="menuitem" tabindex="0" onclick="window.location.href='{{ route('products.create') }}'">New
