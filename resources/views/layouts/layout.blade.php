@@ -35,7 +35,10 @@
         </div>
     </div>
     <footer>
-        <p>© beta version</p>
+        <p>References:</p>
+        <p>https://khang-nd.github.io/7.css/#intro</p>
+        <p>https://medium.com/@tutsmake.com/laravel-11-simple-crud-application-example-2f0fc9c2f572</p>
+        <p>copilot.microsoft.com</p>
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
