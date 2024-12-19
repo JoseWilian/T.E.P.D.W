@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://unpkg.com/7.css" />
     <style>
@@ -16,7 +17,7 @@
 
 <body>
     <div class="background">
-        <div class="window glass active" style="max-width: 30%">
+        <div class="window glass active" style="max-width: 50%">
             <div class="title-bar">
                 <div class="title-bar-text">All Fruits</div>
             </div>
@@ -24,6 +25,7 @@
                 <li role="menuitem" tabindex="0" onclick="window.location.href='{{ route('products.create') }}'">New
                 </li>
                 <li id="updateButton" role="menuitem" tabindex="0">Edit</li>
+                <li id="show" role="menuitem" tabindex="0">Show Description</li>
                 <li id="deleteButton" role="menuitem" tabindex="0">Delete</li>
             </ul>
             <div class="content window-body has-space">
@@ -31,6 +33,7 @@
             </div>
             <div class="window-body has-space">
                 <h5><strong>Description:</strong> </h5>
+                <p id="desc"></p>
             </div>
         </div>
     </div>
@@ -84,6 +87,25 @@
                 }
             });
 
+
+            document.getElementById('show').addEventListener('click', function() {
+                const selectedItems = document.querySelectorAll('li.selected');
+
+                if (selectedItems.length === 1) {
+                    const selectedId = selectedItems[0].getAttribute('data-id');
+
+                    $.ajax({
+                        url: 'productDesc/' + selectedId,
+                        method: 'GET',
+                        success: function(data) {
+                            $('#desc').text(data.description);
+                        },
+
+                    });
+
+                }
+
+            });
 
         });
     </script>
