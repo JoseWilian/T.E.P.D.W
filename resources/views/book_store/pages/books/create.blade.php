@@ -77,7 +77,49 @@
                             <label for="image_path" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Image</label>
                         </div>
 
-                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                        <!-- Copy Data -->
+                        <div class="flex flex-col text-left">
+                            <label for="item" class="block text-gray-700 text-sm font-semibold mb-2">
+                              Copies the Book:
+                            </label>
+                            <!-- Tabela -->
+                            <table class="w-full border-collapse mb-4">
+                              <thead>
+                                <tr class="bg-gray-50">
+                                  <th class="text-left py-3 px-4 font-semibold text-gray-600 border-b">
+                                    ISBN
+                                  </th>
+                                  <th class="w-20 py-3 px-4 border-b"></th>
+                                </tr>
+                              </thead>
+                              <tbody id="tableBody" class="divide-y">
+                                <!-- Itens serão inseridos aqui -->
+                              </tbody>
+                            </table>
+
+                            <!-- Formulário de entrada -->
+
+                              <div class="mb-6">
+                                <input
+                                  type="number"
+                                  id="item"
+                                  class="w-50 p-1 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                  placeholder="Enter the ISBN"
+                                />
+                                <button
+                                  id="addButton"
+                                  type="button"
+                                  class="bg-blue-600 text-white rounded text-sm py-1 px-1"
+                                >
+                                  Add
+                                </button>
+                              </div>
+
+                        </div>
+
+
+                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button>
+
                     </form>
 
                 </div>
@@ -93,5 +135,65 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer=""></script>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <!-- Copy form scrip -->
+    <script>
+        document.getElementById('addButton').addEventListener('click', addItem);
+
+        function addItem() {
+          const input = document.getElementById('item');
+          const value = input.value.trim();
+
+          if (!value) return;
+
+          const tbody = document.getElementById('tableBody');
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-gray-50 group';
+
+          tr.innerHTML = `
+            <td class="py-3 px-4">
+              <span class="editable">${value}</span>
+            </td>
+            <td class="py-3 px-4">
+              <button class="deleteButton invisible group-hover:visible text-red-500 hover:text-red-600 transition-colors">
+                ✕
+              </button>
+            </td>
+          `;
+
+          tbody.appendChild(tr);
+          input.value = '';
+
+          const deleteButton = tr.querySelector('.deleteButton');
+          deleteButton.addEventListener('click', () => {
+            tr.remove();
+          });
+
+          const editableSpan = tr.querySelector('.editable');
+          editableSpan.addEventListener('dblclick', () => {
+            makeEditable(editableSpan);
+          });
+        }
+
+        function makeEditable(span) {
+          const input = document.createElement('input');
+          input.type = 'number';
+          input.value = span.textContent;
+          input.className = 'p-1 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400';
+
+          input.addEventListener('blur', () => {
+            span.textContent = input.value;
+            span.style.display = 'inline';
+            input.remove();
+          });
+
+          input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') input.blur();
+          });
+
+          span.style.display = 'none';
+          span.parentNode.insertBefore(input, span);
+          input.focus();
+        }
+      </script>
 </body>
 @endsection
