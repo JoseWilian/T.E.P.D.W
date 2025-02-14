@@ -30,10 +30,10 @@
                         <a :class="openTab === 1 ? 'border-l border-t border-r rounded-t text-blue-700 font-semibold' : 'text-blue-500 hover:text-blue-800'" class="bg-white inline-block py-2 px-4 font-semibold border-l border-t border-r rounded-t text-blue-700" href="#">Book data</a>
                     </li>
                     <li class="mr-1" @click="openTab = 2">
-                        <a :class="openTab === 2 ? 'border-l border-t border-r rounded-t text-blue-700 font-semibold' : 'text-blue-500 hover:text-blue-800'" class="bg-white inline-block py-2 px-4 font-semibold text-blue-500 hover:text-blue-800" href="#">Book Author(s)</a>
+                        <a :class="openTab === 2 ? 'border-l border-t border-r rounded-t text-blue-700 font-semibold' : 'text-blue-500 hover:text-blue-800'" class="bg-white inline-block py-2 px-4 font-semibold text-blue-500 hover:text-blue-800" href="#">Author(s) Data</a>
                     </li>
                     <li class="mr-1" @click="openTab = 3">
-                        <a :class="openTab === 3 ? 'border-l border-t border-r rounded-t text-blue-700 font-semibold' : 'text-blue-500 hover:text-blue-800'" class="bg-white inline-block py-2 px-4 font-semibold text-blue-500 hover:text-blue-800" href="#">Book Publisher(s)</a>
+                        <a :class="openTab === 3 ? 'border-l border-t border-r rounded-t text-blue-700 font-semibold' : 'text-blue-500 hover:text-blue-800'" class="bg-white inline-block py-2 px-4 font-semibold text-blue-500 hover:text-blue-800" href="#">Publisher(s) Data</a>
 
             </div>
             <div class="bg-white p-6">
