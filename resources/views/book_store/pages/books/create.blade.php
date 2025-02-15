@@ -37,98 +37,162 @@
 
             </div>
             <div class="bg-white p-6">
-                <div id="" class="" x-show="openTab === 1">
-                    <!-- Book Data -->
-                    <form  method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
-                        @csrf
-                        <!-- Title -->
-                        <div class="relative z-0 w-full mb-5 group">
-                            <input type="text" name="title" id="title" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                            <label for="title" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Title</label>
-                        </div>
+                <form  method="POST" enctype="multipart/form-data" class="">
+                    @csrf
+                    <div id="tab1" class="flex flex-col items-start w-full" x-show="openTab === 1">
+                        <!-- Book Data -->
 
-                        <!-- Publication Date -->
-                        <div class="relative z-0 w-full mb-5 group">
-                            <input type="date" name="publication_date" id="publication_date" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                            <label for="publication_date" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Publication Date</label>
-                        </div>
+                            <!-- Title -->
+                            <div class="relative z-0 w-full mb-5 group">
+                                <input type="text" name="book[title]" id="title" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                <label for="title" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Title</label>
+                            </div>
 
-                        <!-- Genre -->
-                        <div class="relative z-0 w-full mb-5 group">
-                            <input type="text" name="genre" id="genre" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                            <label for="genre" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Genre</label>
-                        </div>
+                            <!-- Publication Date -->
+                            <div class="relative z-0 w-full mb-5 group">
+                                <input type="date" name="book[publication_date]" id="publication_date" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                <label for="publication_date" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Publication Date</label>
+                            </div>
 
-                        <!-- Sale Value -->
-                        <div class="relative z-0 w-full mb-5 group">
-                            <input type="number" step="0.01" name="sale_value" id="sale_value" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                            <label for="sale_value" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Sale Value</label>
-                        </div>
+                            <!-- Genre -->
+                            <div class="relative z-0 w-full mb-5 group">
+                                <input type="text" name="book[genre]" id="genre" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                <label for="genre" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Genre</label>
+                            </div>
 
-                        <!-- Purchased Value -->
-                        <div class="relative z-0 w-full mb-5 group">
-                            <input type="number" step="0.01" name="purchased_value" id="purchased_value" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                            <label for="purchased_value" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Purchased Value</label>
-                        </div>
+                            <!-- Sale Value -->
+                            <div class="relative z-0 w-full mb-5 group">
+                                <input type="number" step="0.01" name="book[sale_value]" id="sale_value" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                <label for="sale_value" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Sale Value</label>
+                            </div>
 
-                        <!-- Image (Book Cover) -->
-                        <div class="relative z-0 w-full mb-5 group">
-                            <input type="file" name="image_path" id="image_path" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" />
-                            <label for="image_path" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Image</label>
-                        </div>
+                            <!-- Purchased Value -->
+                            <div class="relative z-0 w-full mb-5 group">
+                                <input type="number" step="0.01" name="book[purchased_value]" id="purchased_value" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                <label for="purchased_value" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Purchased Value</label>
+                            </div>
 
-                        <!-- Copy Data -->
-                        <div class="flex flex-col text-left">
-                            <label for="item" class="block text-gray-700 text-sm font-semibold mb-2">
-                              Copies the Book:
-                            </label>
-                            <!-- Tabela -->
-                            <table class="w-full border-collapse mb-4">
-                              <thead>
-                                <tr class="bg-gray-50">
-                                  <th class="text-left py-3 px-4 font-semibold text-gray-600 border-b">
-                                    ISBN
-                                  </th>
-                                  <th class="w-20 py-3 px-4 border-b"></th>
-                                </tr>
-                              </thead>
-                              <tbody id="tableBody" class="divide-y">
-                                <!-- Itens serão inseridos aqui -->
-                              </tbody>
+                            <!-- Image (Book Cover) -->
+                            <div class="relative z-0 w-full mb-5 group">
+                                <input type="file" name="book[image_path]" id="image_path" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" />
+                                <label for="image_path" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Image</label>
+                            </div>
+
+                            <!-- Copy Data -->
+                            <div class="flex flex-col items-start w-full">
+                                <label for="item" class="block text-gray-700 text-sm font-semibold mb-2">
+                                Copies the Book:
+                                </label>
+                                <!-- Tabela -->
+                                <table class="w-full border-collapse mb-4">
+                                <thead>
+                                    <tr class="bg-gray-50">
+                                    <th class="text-left py-3 px-4 font-semibold text-gray-600 border-b">
+                                        ISBN
+                                    </th>
+                                    <th class="w-20 py-3 px-4 border-b"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBody" class="divide-y">
+                                    <!-- itens here-->
+                                </tbody>
+                                </table>
+
+                                <div class="mb-6">
+                                    <input
+                                    type="number"
+                                    id="item"
+                                    class="w-50 p-1 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                    placeholder="Enter the ISBN"
+                                    />
+                                    <button
+                                    id="addButton"
+                                    type="button"
+                                    class="bg-blue-600 text-white rounded text-sm py-1 px-1"
+                                    >
+                                    Add
+                                    </button>
+                                </div>
+
+                            </div>
+
+
+                            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-4">Register</button>
+
+
+
+                    </div>
+                    <div id="tab2" class="" x-show="openTab === 2" style="display: none;">
+                        <!-- Author Data-->
+                        <div class="flex flex-col items-start w-full">
+                            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-500 dark:text-gray-400">
+                                    <tr>
+                                        <th scope="col" class="p-4">
+                                            <div class="flex items-left">
+
+                                                <label for="checkbox-all" class="sr-only">checkbox</label>
+                                            </div>
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                        <td class="w-4 p-4">
+                                            <div class="flex items-center">
+                                                <input
+                                                    id="checkbox-table-author"
+                                                    type="checkbox"
+                                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                                />
+                                                <label for="checkbox-table-author" class="sr-only">checkbox</label>
+                                            </div>
+                                        </td>
+                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            Fulano de tal
+                                        </th>
+                                    </tr>
+                                </tbody>
                             </table>
-
-                            <!-- Formulário de entrada -->
-
-                              <div class="mb-6">
-                                <input
-                                  type="number"
-                                  id="item"
-                                  class="w-50 p-1 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                                  placeholder="Enter the ISBN"
-                                />
-                                <button
-                                  id="addButton"
-                                  type="button"
-                                  class="bg-blue-600 text-white rounded text-sm py-1 px-1"
-                                >
-                                  Add
-                                </button>
-                              </div>
-
                         </div>
+                    </div>
+                    <div id="tab3" class="" x-show="openTab === 3" style="display: none;">
+                        <!-- Publisher Data-->
+                        <div class="flex flex-col items-start w-full">
+                            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-500 dark:text-gray-400">
+                                    <tr>
+                                        <th scope="col" class="p-4">
+                                            <div class="flex items-left">
 
-
-                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button>
-
-                    </form>
-
-                </div>
-                <div id="" class="" x-show="openTab === 2" style="display: none;">
-                    Curabitur at lacinia felis. Curabitur elit ante, efficitur molestie iaculis non, blandit dictum dui. Fusce ac faucibus lorem, in aliquet metus. Praesent bibendum justo vitae ante imperdiet, sit amet posuere tortor tincidunt. Nam a arcu eros. In vitae augue tempus, ullamcorper lectus ut, egestas erat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean imperdiet eget sapien nec consequat. Etiam imperdiet diam ac mattis gravida.
-                </div>
-                <div id="" class="" x-show="openTab === 3" style="display: none;">
-                    Duis imperdiet ullamcorper nibh, sed euismod dolor facilisis sit amet. Etiam quis cursus lorem. Vivamus euismod accumsan neque lobortis tempus. Praesent nec lacinia odio, a dictum risus. Sed eget dictum turpis, vitae iaculis orci. Vivamus laoreet consequat velit, non viverra diam pulvinar a. Aliquam bibendum ligula lacus, ac convallis ipsum hendrerit ut. Suspendisse rutrum dui libero, non aliquam lectus lobortis at. Donec gravida finibus sollicitudin. Nulla ut metus finibus purus vehicula porttitor. Fusce id sem non nisl pulvinar scelerisque.
-                </div>
+                                                <label for="checkbox-all" class="sr-only">checkbox</label>
+                                            </div>
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                        <td class="w-4 p-4">
+                                            <div class="flex items-center">
+                                                <input
+                                                    id="checkbox-table-publisher"
+                                                    type="checkbox"
+                                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                                />
+                                                <label for="checkbox-table-publisher" class="sr-only">checkbox</label>
+                                            </div>
+                                        </td>
+                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            Editora tal
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </main>
@@ -150,9 +214,10 @@
           tr.className = 'hover:bg-gray-50 group';
 
           tr.innerHTML = `
-            <td class="py-3 px-4">
-              <span class="editable">${value}</span>
-            </td>
+
+                <input type="number" name="copy[isbn][]" value=${value} class="editable block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required/>
+
+
             <td class="py-3 px-4">
               <button class="deleteButton invisible group-hover:visible text-red-500 hover:text-red-600 transition-colors">
                 ✕
@@ -166,11 +231,6 @@
           const deleteButton = tr.querySelector('.deleteButton');
           deleteButton.addEventListener('click', () => {
             tr.remove();
-          });
-
-          const editableSpan = tr.querySelector('.editable');
-          editableSpan.addEventListener('dblclick', () => {
-            makeEditable(editableSpan);
           });
         }
 
